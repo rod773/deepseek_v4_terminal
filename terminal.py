@@ -4,7 +4,9 @@ import json
 import urllib.request
 import urllib.error
 
-def load_env(path=".env"):
+def load_env(path=None):
+    if path is None:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
     with open(path) as f:
         for line in f:
             line = line.strip()
